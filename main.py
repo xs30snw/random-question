@@ -5,16 +5,22 @@ my_dict = {}
 with open("dictionary.json", encoding="UTF-8") as my_file:
     my_dict = json.load(my_file)
 
-input("Нажмите <Enter> чтобы начать программу")
+# Повторять ввод, пока пользователь не введет число
+n = 0
+while True:
+    n = input("Введите количество вопросов и нажмите <Enter> чтобы начать программу: ")
+    if n.isdigit():
+        n = int(n)
+        break
 
-# Показать 3 вопроса в цикле
-for n in range(3):
+# Показать n вопросов в цикле
+for i in range(n):
 
     # Выбрать случайный вопрос-ответ из словаря
     question, answer = random.choice(list(my_dict.items()))
 
     print("\n---")
-    print('Вопрос ' + str(n+1) + ":")
+    print('Вопрос ' + str(i+1) + ":")
     print(question)
 
     input()
